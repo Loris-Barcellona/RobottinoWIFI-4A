@@ -75,7 +75,7 @@ void loop() {
     //accept packets from any IP address/devices
     //Listen to local port 4567
     //outgoing packets could go to any remote host without restrictions...
-    esp01cmd("AT+CIPSTART=3,\"UDP\",\"0.0.0.0\",0,4567,2"); //starting UDP Socket Server 
+    esp01cmd("AT+CIPSTART=3,\"UDP\",\"0.0.0.0\",0,4567,2"); //starting UDP Socket Server(Unione della porta e dell'IP)
     
     
 //    String str = ;    
@@ -89,6 +89,12 @@ void loop() {
         //Serial.println("Received: "+str);
         //Serial.println(startOfSTR);
       }
+        String str = Serial.readString();
+      if(str != "") {
+        Serial.println("Received: "+str);
+        //Serial.println("Received: "+str);
+        //Serial.println(startOfSTR);
+        
     }
 
 }
