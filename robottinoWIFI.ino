@@ -32,6 +32,9 @@ String esp01cmd(String cmd) {
   delay(10);
   String risposta = check4answer(); //verifico la risposta del modulo WIFI
   return risposta; //restituisco la risposta del modulo WIFI
+String str = esp01cmd("AT+CWLIF");
+int startOfSTR = str.indexOf(,,18); //IP finsce prima della virgola
+String cellphoneIP = str.substring(11,startOfSTR);
 }
 
 void setup()  {
