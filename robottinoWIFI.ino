@@ -97,6 +97,9 @@ void loop() {
         String str = Serial.readString();
       if(str != "") {
         Serial.println("Received: "+str);
+         string str1 + "AT+CIPSEND=3"+str.length();
+          str1
+           Serial.println("Received from Monitorl Serial"+ str);
         //Serial.println("Received: "+str);
         //Serial.println(startOfSTR);
         
