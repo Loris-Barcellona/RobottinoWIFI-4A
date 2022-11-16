@@ -29,13 +29,15 @@ String check4answer(){
 String esp01cmd(String cmd) {
   Serial.println("sending: " + cmd); //stampo su Monitor Seriale il comando che viene inviato al modulo WIFI (DEBUG)
   serialModuloWIFI.println(cmd); //invio il comando al moduloWIFI
-  delay(10);
+  delay(4);
   String risposta = check4answer(); //verifico la risposta del modulo WIFI
   return risposta; //restituisco la risposta del modulo WIFI
 String str = esp01cmd("AT+CWLIF");
 int startOfSTR = str.indexOf(,,18); //IP finsce prima della virgola
-String cellphoneIP = str.substring(11,startOfSTR);
+String cellphoneIP = str.substring(10,startOfSTR);
 }
+
+Serial.readString();
 
 void setup()  {
     // Define pin modes for TX and RX
@@ -88,7 +90,7 @@ void loop() {
       String str = serialModuloWIFI.readString();
       if(str != "") {
         int startOfSTR = str.indexOf(":",10)+1;
-        Serial.println("Received: "+str.substring(startOfSTR));
+        Serial.println("Received: "+str.substring(10,startOfSTR););
         //Serial.println("Received: "+str);
         //Serial.println(startOfSTR);
       }
